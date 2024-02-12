@@ -4,9 +4,9 @@
 #include <stdbool.h>
 #include <pthread.h>
 
-#define NUM_THREADS 4 // number of threads in thread pool
+#define NUM_THREADS 8 // number of threads in thread pool
 
-#define BATCH_SIZE 10000 // number of numbers in each task
+#define BATCH_SIZE 100000 // number of numbers in each task
 
 typedef struct task {
     int* numbers;  // Pointer to an array of numbers in the batch
