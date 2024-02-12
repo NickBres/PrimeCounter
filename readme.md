@@ -38,8 +38,33 @@ The `myCounter` program has been benchmarked against a simple, single-threaded p
 ## Conclusion
 The `myCounter` program demonstrates the advantages of multithreaded processing in computational tasks. With the appropriate settings, it can vastly outperform a simple single-threaded counter, making it a valuable tool for processing large datasets in a fraction of the time.
 
+## Note(arkSolution Comparison)
+I cannot run arkSolution to compare results, because of difference in architectures.
+I can compare them on relative way only (not-fair):
+    randomGenerator: Seed: 10 Numbers: 10 Million
+    Results from the video explanation:
+        * Original primeCounter: 1 minute and 10 seconds
+        * Optimized solution (arkSolution): 8.2 seconds
+        Solution shows an approximately 8.54 times speed-up (70 sec / 8.2 sec ≈ 8.54)
+    My results:
+        * Original primeCounter: 44 seconds
+        * Optimized solution (myCounter): 1.433 seconds
+        Solution shows an approximately 30.7 times speed-up (44 sec / 1.433 sec ≈ 30.7)
+    Its almost 4x better in relative way
+
 ## Example
 ```sh
+nikita@NikitaVM:~/Desktop/PrimeCounter$ time ./randomGenerator 10 10000000 | ./arkSolution
+bash: ./arkSolution: cannot execute binary file: Exec format error
+
+real	0m0.006s
+user	0m0.006s
+sys	0m0.000s
+nikita@NikitaVM:~/Desktop/PrimeCounter$ file ./arkSolution 
+./arkSolution: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=b854357bef0573e826e253432582ec13bfa8693b, for GNU/Linux 3.2.0, not stripped
+nikita@NikitaVM:~/Desktop/PrimeCounter$ file ./myCounter 
+./myCounter: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=ee7b33c3c4207032b1ddba85a0f71f66dae05170, for GNU/Linux 3.7.0, not stripped
+
 nikita@NikitaVM:~/Desktop/PrimeCounter$ time ./randomGenerator 10 10000000 | ./primeCounter 
 491146 total primes.
 
