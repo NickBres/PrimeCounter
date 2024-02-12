@@ -4,27 +4,16 @@
 #include <stdbool.h>
 #include <pthread.h>
 
-#define NUM_THREADS 1 // number of threads in thread pool
+#define NUM_THREADS 4 // number of threads in thread pool
 
-#define BATCH_SIZE 100000
-
-typedef struct batch_task {
-    int numbers[BATCH_SIZE];  // Array to hold a batch of numbers
-    int count;                // Count of numbers in the batch
-    struct batch_task* next;  // Pointer to the next batch task
-} batch_task_t;
+#define BATCH_SIZE 10000 // number of numbers in each task
 
 typedef struct task {
-    int type; // 0 for single number, 1 for batch
-    union {
-        int number; // For single number tasks
-        struct { // For batch tasks
-            int* numbers;
-            int count;
-        } batch;
-    };
-    struct task* next;
+    int* numbers;  // Pointer to an array of numbers in the batch
+    int count;     // The number of numbers in the batch
+    struct task* next;  // Pointer to the next task in the queue
 } task_t;
+
 
 typedef struct queue {
     task_t* front; // Pointer to the front of the queue
@@ -35,10 +24,8 @@ typedef struct queue {
 
 void init_queue(queue_t* q);
 void* worker_thread(void* arg);
-void enqueue(queue_t* q, int number);
+void enqueue(queue_t* q, int* numbers, int count);
 task_t* dequeue(queue_t* q);
 bool isPrime(int n);
-void enqueue_batch(queue_t* q, int* numbers, int count);
-batch_task_t* dequeue_batch(queue_t* q);
 
 #endif // MYCOUNTER_H

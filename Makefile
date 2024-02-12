@@ -1,4 +1,5 @@
 CC = gcc
+CFLAGS = -std=gnu11
 
 .PHONY: all
 all: randomGenerator primeCounter myCounter
@@ -9,8 +10,8 @@ randomGenerator:  generator.c
 primeCounter:	primeCounter.c
 	$(CC)  -o primeCounter primeCounter.c
 
-myCounter: myCounter.c
-	$(CC)  -o myCounter myCounter.c
+myCounter: MyCounter.c MyCounter.h
+	$(CC) $(CFLAGS)  -o myCounter MyCounter.c
 
 .PHONY: clean
 clean:
