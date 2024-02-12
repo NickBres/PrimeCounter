@@ -40,55 +40,55 @@ The `myCounter` program demonstrates the advantages of multithreaded processing 
 
 ## Example
 ```sh
-    nikita@NikitaVM:~/Desktop/PrimeCounter$ time ./randomGenerator 10 10000000 | ./primeCounter 
-    491146 total primes.
+nikita@NikitaVM:~/Desktop/PrimeCounter$ time ./randomGenerator 10 10000000 | ./primeCounter 
+491146 total primes.
 
-    real	0m44.014s
-    user	0m44.498s
-    sys	0m0.528s
-    nikita@NikitaVM:~/Desktop/PrimeCounter$ time ./randomGenerator 10 10000000 | ./myCounter 
-    491146 total primes.
+real	0m44.014s
+user	0m44.498s
+sys	0m0.528s
+nikita@NikitaVM:~/Desktop/PrimeCounter$ time ./randomGenerator 10 10000000 | ./myCounter 
+491146 total primes.
 
-    real	0m1.433s
-    user	0m9.638s
-    sys	0m0.064s
-    nikita@NikitaVM:~/Desktop/PrimeCounter$ ./randomGenerator 10 10000000 | valgrind --tool=massif ./myCounter
-    ==7377== Massif, a heap profiler
-    ==7377== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
-    ==7377== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-    ==7377== Command: ./myCounter
-    ==7377== 
-    491146 total primes.
-    ==7377== 
-    nikita@NikitaVM:~/Desktop/PrimeCounter$ ms_print massif.out.7377 
-    --------------------------------------------------------------------------------
-    Command:            ./myCounter
-    Massif arguments:   (none)
-    ms_print arguments: massif.out.7377
-    --------------------------------------------------------------------------------
+real	0m1.433s
+user	0m9.638s
+sys	0m0.064s
+nikita@NikitaVM:~/Desktop/PrimeCounter$ ./randomGenerator 10 10000000 | valgrind --tool=massif ./myCounter
+==7377== Massif, a heap profiler
+==7377== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==7377== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==7377== Command: ./myCounter
+==7377== 
+491146 total primes.
+==7377== 
+nikita@NikitaVM:~/Desktop/PrimeCounter$ ms_print massif.out.7377 
+--------------------------------------------------------------------------------
+Command:            ./myCounter
+Massif arguments:   (none)
+ms_print arguments: massif.out.7377
+--------------------------------------------------------------------------------
 
 
-        MB
-    1.151^                  :#    :                                               
-        |                  :#    :                                               
-        |                  :#    :                                               
-        |                  :#    :                                               
-        |                  :#    :                                               
-        |                  :#    :                                               
-        |                  :#    :                                               
-        |@   :   ::   :    :#   @:             @      :         :  :             
-        |@   :   ::   :    :#   @:             @      :         :  :             
-        |@   :   ::   :    :#   @:             @      :         :  :             
-        |@   :   ::   :    :#   @:             @      :         :  :             
-        |@   :   ::   :    :#   @:             @      :         :  :             
-        |@   :   ::   :    :#   @:             @      :         :  :             
-        |@   :   ::   :    :#   @:             @      :         :  :             
-        |@::::::::::::::::::#:::@:@:::@::::::::@::::::::@::::::@:::::::@::::::@::
-        |@::::::::::::::: ::#: :@:@:::@:::: :::@::::::::@::::::@:::::::@::::::@::
-        |@::::::::::::::: ::#: :@:@:::@:::: :::@::::::::@::::::@:::::::@::::::@::
-        |@::::::::::::::: ::#: :@:@:::@:::: :::@::::::::@::::::@:::::::@::::::@::
-        |@::::::::::::::: ::#: :@:@:::@:::: :::@::::::::@::::::@:::::::@::::::@::
-        |@::::::::::::::: ::#: :@:@:::@:::: :::@::::::::@::::::@:::::::@::::::@::
-    0 +----------------------------------------------------------------------->Gi
-        0                                                                   74.28
+    MB
+1.151^                  :#    :                                               
+     |                  :#    :                                               
+     |                  :#    :                                               
+     |                  :#    :                                               
+     |                  :#    :                                               
+     |                  :#    :                                               
+     |                  :#    :                                               
+     |@   :   ::   :    :#   @:             @      :         :  :             
+     |@   :   ::   :    :#   @:             @      :         :  :             
+     |@   :   ::   :    :#   @:             @      :         :  :             
+     |@   :   ::   :    :#   @:             @      :         :  :             
+     |@   :   ::   :    :#   @:             @      :         :  :             
+     |@   :   ::   :    :#   @:             @      :         :  :             
+     |@   :   ::   :    :#   @:             @      :         :  :             
+     |@::::::::::::::::::#:::@:@:::@::::::::@::::::::@::::::@:::::::@::::::@::
+     |@::::::::::::::: ::#: :@:@:::@:::: :::@::::::::@::::::@:::::::@::::::@::
+     |@::::::::::::::: ::#: :@:@:::@:::: :::@::::::::@::::::@:::::::@::::::@::
+     |@::::::::::::::: ::#: :@:@:::@:::: :::@::::::::@::::::@:::::::@::::::@::
+     |@::::::::::::::: ::#: :@:@:::@:::: :::@::::::::@::::::@:::::::@::::::@::
+     |@::::::::::::::: ::#: :@:@:::@:::: :::@::::::::@::::::@:::::::@::::::@::
+   0 +----------------------------------------------------------------------->Gi
+     0                                                                   74.28
 ```
