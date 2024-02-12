@@ -40,16 +40,25 @@ The `myCounter` program demonstrates the advantages of multithreaded processing 
 
 ## Note(arkSolution Comparison)
 I cannot run arkSolution to compare results, because of difference in architectures.
+
 I can compare them on relative way only (not-fair):
+
     randomGenerator: Seed: 10 Numbers: 10 Million
+
     Results from the video explanation:
+
         * Original primeCounter: 1 minute and 10 seconds
         * Optimized solution (arkSolution): 8.2 seconds
+
         Solution shows an approximately 8.54 times speed-up (70 sec / 8.2 sec ≈ 8.54)
+
     My results:
+
         * Original primeCounter: 44 seconds
         * Optimized solution (myCounter): 1.433 seconds
+
         Solution shows an approximately 30.7 times speed-up (44 sec / 1.433 sec ≈ 30.7)
+        
     Its almost 4x better in relative way
 
 ## Example
